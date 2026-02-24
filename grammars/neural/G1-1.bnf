@@ -1,0 +1,18 @@
+<e>  ::=  <e>+<e>|
+          <e>-<e>|
+          <e>*<e>|
+		  (<e>) |
+          pdiv(<e>,<e>)|
+          psqrt(<e>)|
+          np.sin(<e>)|
+          np.tanh(<e>)|
+          np.exp(<e>)|
+          plog(<e>)|
+          x[:, <col>]|
+          <c><c><c>.<c><c><c> |
+		  ge_sigmoid(<e>) |
+		  ge_hyperbolic_tangent(<e>) |
+		  ge_relu(<e>) |
+		  ge_softplus(<e>)
+<c>  ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<col> ::= GE_RANGE:dataset_n_vars
