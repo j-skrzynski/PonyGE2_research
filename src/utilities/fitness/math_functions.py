@@ -250,3 +250,41 @@ def sci_notation(n, prec=3):
     exponent = ilog(n, base)
     mantissa = n / base ** exponent
     return '{0:.{1}f}e{2:+d}'.format(mantissa, prec, exponent)
+
+# Code below is dedicated to develop neural-like grammars
+
+# Sigmoid function
+def ge_sigmoid(x):
+    return (1/(1+np.exp(x)))
+
+# Hyperbolic tangent
+def ge_hyperbolic_tangent(x):
+    return (np.exp(x)-np.exp(x*(-1)))/(np.exp(x)+np.exp(x*(-1)))
+
+# ReLU (Rectified linear unit)
+def ge_relu(x):
+    return np.maximum(x, 0)
+
+# SoftPlus
+def ge_softplus(x):
+    return np.log(1+np.exp(x))
+
+# Leaky ReLU
+def ge_leaky_relu(x, alpha=0.01):
+    return np.where(x > 0, x, x * alpha)
+
+# ELU (Exponential Linear Unit)
+def ge_elu(x, alpha=1.0):
+    return np.where(x > 0, x, alpha * (np.exp(x) - 1))
+
+# Swish (SiLU)
+# https://docs.pytorch.org/docs/stable/generated/torch.nn.SiLU.html
+def ge_swish(x):
+    return x / (1 + np.exp(-x))
+
+# GELU (Gaussian Error Linear Unit)
+def ge_gelu(x):
+    return 0.5 * x * (1 + np.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * np.power(x, 3))))
+
+
+
