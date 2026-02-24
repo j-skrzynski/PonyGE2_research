@@ -1,0 +1,37 @@
+<neural_scaffolding> ::= <n_scaffold> + <neural_scaffolding> | <n_scaffold>
+<n_scaffold> ::= <n_scaffold_inner>*<n_scaffold_weight>
+<n_scaffold_weight> ::= <const_e>
+<n_scaffold_inner> ::= <activation_function>(<neural_scaffolding>) | <activation_function>(<e>)
+<activation_function> ::= ge_sigmoid |
+		  ge_hyperbolic_tangent |
+		  ge_relu |
+		  ge_softplus
+
+<const_e>  ::=  <const_e>+<const_e>|
+          <const_e>-<const_e>|
+          <const_e>*<const_e>|
+		  (<const_e>) |
+          pdiv(<const_e>,<const_e>)|
+          psqrt(<const_e>)|
+          np.sin(<const_e>)|
+          np.tanh(<const_e>)|
+          np.exp(<const_e>)|
+          plog(<const_e>)|
+          <c><c>.<c><c>		
+		
+<e>  ::=  <e>+<e>|
+          <e>-<e>|
+          <e>*<e>|
+		  (<e>) |
+          pdiv(<e>,<e>)|
+          psqrt(<e>)|
+          np.sin(<e>)|
+          np.tanh(<e>)|
+          np.exp(<e>)|
+          plog(<e>)|
+          x[:, <col>]|
+          <c><c>.<c><c>
+		  
+<c>  ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<col> ::=  GE_RANGE:dataset_n_vars
+
